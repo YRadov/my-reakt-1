@@ -1,0 +1,11 @@
+{
+  "name": "My React JS",
+  "version": "1.0.0",
+  "description": "React	tutorial",
+  "main": "index.html",
+  "scripts": {
+    "start": "node	server.js"
+  },
+  "author": "Radov Yuriy",
+  "license": "MIT"
+}
