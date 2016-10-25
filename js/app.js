@@ -1,4 +1,14 @@
+var App = React.createClass({
+    render: function() {
+        return (
+           <div className="app">
+               Компонент Арр!
+           </div>
+        );
+    }
+});
+
 ReactDOM.render(
-    <h1>Hello,	world!</h1>,
-    document.getElementById('root')
-)
+    <App />,
+document.getElementById('root')
+);
