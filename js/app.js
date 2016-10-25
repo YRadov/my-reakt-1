@@ -1,8 +1,33 @@
+var	my_news	=	[
+    {
+        author:	'Саша Печкин',
+        text:	'В четверг, четвертого числа...'
+    },
+    {
+        author:	'Просто	Вася',
+        text:	'Считаю, что $ должен стоить 35 рублей!'
+    },
+    {
+        author:	'Гость',
+        text:	'Бесплатно.	Скачать. Лучший	сайт - http://localhost:3000'
+    }
+];
+
 var News = React.createClass({
     render:	function()	{
+        var data = this.props.data;
+        var newsTemplate = data.map(function(item, index) {
+            return (
+                <div key={index}>
+                   <p className="news_author">{item.author}</p>
+                   <p className="news_text">{item.text}</p>
+                </div>
+            )
+        });
+
         return	(
             <div className="news">
-                К сожалению, новостей нет.
+                {newsTemplate}
             </div>
         );
     }
@@ -22,7 +47,7 @@ var App = React.createClass({
         return (
            <div className="app">
                Компонент Арр!
-               <News />
+               <News data = {my_news} /> {/*comment in jsx*/}
                <Comments />
            </div>
         );
