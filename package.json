@@ -1,11 +1,14 @@
 {
-  "name": "My React JS",
+  "name": "MyReact",
   "version": "1.0.0",
-  "description": "React	tutorial",
+  "description": "React",
   "main": "index.html",
   "scripts": {
-    "start": "node	server.js"
+    "start": "node server.js"
   },
   "author": "Radov Yuriy",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.14.0"
+  }
 }
