@@ -8,12 +8,22 @@ var News = React.createClass({
     }
 });
 
+var Comments = React.createClass({
+    render:	function()	{
+        return	(
+            <div className="comments">
+                Нет	новостей - комментировать нечего
+            </div>
+        );
+    }
+});
 var App = React.createClass({
     render: function() {
         return (
            <div className="app">
                Компонент Арр!
                <News />
+               <Comments />
            </div>
         );
     }
