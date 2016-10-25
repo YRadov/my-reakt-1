@@ -13,42 +13,55 @@ var	my_news	=	[
     }
 ];
 
+var Article = React.createClass({
+    render:	function()	{
+        var author = this.props.data.author,
+            text = this.props.data.text;
+
+        return	(
+            <div className="article">
+                <p className="news_author">{author}</p>
+                <p className="news_text">{text}</p>
+            </div>
+
+        );
+    }
+});
+
 var News = React.createClass({
     render:	function()	{
         var data = this.props.data;
-        var newsTemplate = data.map(function(item, index) {
-            return (
-                <div key={index}>
-                   <p className="news_author">{item.author}</p>
-                   <p className="news_text">{item.text}</p>
-                </div>
-            )
-        });
+        var newsTemplate;
+
+        if (data.length > 0) {
+            newsTemplate = data.map(function(item, index) {
+                return (
+                    <div key={index}>
+                        <Article data = {item}/>
+                    </div>
+                )
+            });
+        } else {
+            newsTemplate = <p>К	сожалению новостей нет</p>
+        }
 
         return	(
             <div className="news">
                 {newsTemplate}
+                <strong className={'news_count ' + (data.length > 0 ? '' : 'none')}>
+                    Всего новостей: {data.length}
+                </strong>
             </div>
         );
     }
 });
 
-var Comments = React.createClass({
-    render:	function()	{
-        return	(
-            <div className="comments">
-                Нет	новостей - комментировать нечего
-            </div>
-        );
-    }
-});
 var App = React.createClass({
     render: function() {
         return (
            <div className="app">
-               Компонент Арр!
+               <h3>Новости</h3>
                <News data = {my_news} /> {/*comment in jsx*/}
-               <Comments />
            </div>
         );
     }
